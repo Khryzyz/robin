@@ -1,6 +1,6 @@
 package com.camilorubio.robin.app
 
-import com.camilorubio.robin.di.DaggerApplicationComponent
+import com.camilorubio.robin.di.component.DaggerApplicationComponent
 import com.facebook.stetho.Stetho
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
