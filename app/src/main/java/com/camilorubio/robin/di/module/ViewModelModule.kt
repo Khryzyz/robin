@@ -2,8 +2,8 @@ package com.camilorubio.robin.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.camilorubio.robin.utils.viewModel.ViewModelFactory
-import com.camilorubio.robin.utils.viewModel.ViewModelKey
+import com.camilorubio.robin.utility.viewModel.ViewModelFactory
+import com.camilorubio.robin.utility.viewModel.ViewModelKey
 import com.camilorubio.robin.viewmodel.employee.EmployeeViewModel
 import com.camilorubio.robin.viewmodel.home.HomeViewModel
 import com.camilorubio.robin.viewmodel.share.ShareViewModel

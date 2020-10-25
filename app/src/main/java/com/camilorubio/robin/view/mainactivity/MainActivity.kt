@@ -8,6 +8,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.ActivityMainBinding
+import com.camilorubio.robin.utility.Utils.Companion.gone
+import com.camilorubio.robin.utility.Utils.Companion.visible
 
 class MainActivity : AppCompatActivity() {
 

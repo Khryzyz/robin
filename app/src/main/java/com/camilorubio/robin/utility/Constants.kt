@@ -1,4 +1,4 @@
-package com.camilorubio.robin.utils
+package com.camilorubio.robin.utility
 
 object Constants {
 

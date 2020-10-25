@@ -1,4 +1,4 @@
-package com.camilorubio.robin.utils.viewModel
+package com.camilorubio.robin.utility.viewModel
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

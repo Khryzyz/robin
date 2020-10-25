@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.EmployeeFragmentBinding
-import com.camilorubio.robin.utils.viewModel.ViewModelFactory
+import com.camilorubio.robin.utility.viewModel.ViewModelFactory
 import com.camilorubio.robin.view.employee.adapter.EmployeeAdapter
 import com.camilorubio.robin.viewmodel.employee.EmployeeViewModel
 import com.camilorubio.robin.viewmodel.share.ShareViewModel
@@ -41,6 +41,8 @@ class EmployeeFragment : Fragment() {
         )
 
         binding.lifecycleOwner = this
+
+        binding.viewModel = viewModel
 
         setupAdapter()
 

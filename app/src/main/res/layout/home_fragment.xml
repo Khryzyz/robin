@@ -18,38 +18,75 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/purple_500">
 
             <TextView
                 android:id="@+id/textView_companyName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sm_margin"
+                android:layout_marginStart="@dimen/md_margin"
                 android:text="@{viewModel.companyName}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="RobinFood"/>
+                tools:text="RobinFood" />
 
             <TextView
                 android:id="@+id/textView_companyAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/sm_text_size"
+                android:layout_marginStart="@dimen/md_margin"
+                android:layout_marginTop="@dimen/xs_margin"
                 android:text="@{viewModel.companyAddress}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_companyName"
-                tools:text="Carrera 48 # 34 - Norte - 98"/>
+                tools:text="Carrera 48 # 34 - Norte - 98" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_bossEmployee"
+            <Button
+                android:id="@+id/button_addNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add news"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_rounded_button"
+                android:textColor="@color/purple_700"
+                android:textColorHint="@color/purple_700"
+                android:layout_marginEnd="@dimen/md_margin"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/md_margin"
+                android:background="@drawable/bg_container_home"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_companyAddress"
-                tools:listitem="@layout/boss_employee_item" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_companyAddress">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_bossEmployee"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/md_padding"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/boss_employee_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

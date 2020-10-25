@@ -1,7 +1,7 @@
 package com.camilorubio.robin.di.module
 
 import com.camilorubio.robin.data.apiservice.RobinApi
-import com.camilorubio.robin.utils.Constants.RobinApi.BASE_URL
+import com.camilorubio.robin.utility.Constants.RobinApi.BASE_URL
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

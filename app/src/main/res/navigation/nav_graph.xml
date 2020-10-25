@@ -8,16 +8,20 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.camilorubio.robin.view.home.HomeFragment"
-        android:label="home_fragment"
+        android:label="@string/app_name"
         tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_employeeFragment"
-            app:destination="@id/employeeFragment" />
+            app:destination="@id/employeeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
         android:name="com.camilorubio.robin.view.employee.EmployeeFragment"
-        android:label="EmployeeFragment" >
+        android:label="@string/employees" >
         <argument
             android:name="idBossEmployee"
             app:argType="long" />

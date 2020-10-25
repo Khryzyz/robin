@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.camilorubio.robin.data.ResponseState
+import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.view.model.CompanyBind
 import com.camilorubio.robin.viewmodel.UIState
 import kotlinx.coroutines.Dispatchers
@@ -56,5 +57,37 @@ class HomeViewModel @Inject constructor(private val useCases : IContractHome.Use
         return  _company.value
     }
 
+    override fun setItemsSelectable(status : Boolean) {
+        getCompany()?.let { companyBind ->
+            useCases.setItemsSelectable(status, companyBind.employees).let { listBossEmployeeBind ->
+                _bossEmployees.value = UIState.Success(
+                    listBossEmployeeBind
+                )
+                _company.value?.employees = listBossEmployeeBind
+            }
+        }
+    }
+
+    override fun setStatusCheckByEmployee(idEmployee: Long, status: Boolean) {
+        getCompany()?.let { companyBind ->
+            useCases.setStatusCheckByEmployee(idEmployee, status, companyBind.employees).let { listBossEmployeeBind ->
+                _bossEmployees.value = UIState.Success(
+                    listBossEmployeeBind
+                )
+                _company.value?.employees = listBossEmployeeBind
+            }
+        }
+    }
+
+    override fun cleanSelection() {
+        getCompany()?.let { companyBind ->
+            useCases.cleanSelection(companyBind.employees).let { listBossEmployeeBind ->
+                _bossEmployees.value = UIState.Success(
+                    listBossEmployeeBind
+                )
+                _company.value?.employees = listBossEmployeeBind
+            }
+        }
+    }
 
 }

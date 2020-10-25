@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">robin</string>
+    <string name="app_name">RobinFood</string>
+    <string name="employees">Empleados</string>
+    <string name="employees_news">Empleados nuevos</string>
+    <string name="menu_search">Búsqueda</string>
+    <string name="action_mode_menu">Menú de acción</string>
+    <string name="text_employees">Empleados a cargo</string>
+
 </resources>

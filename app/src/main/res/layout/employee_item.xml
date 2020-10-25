@@ -17,12 +17,12 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
         android:elevation="3dp"
-        android:layout_margin="@dimen/sm_margin">
+        android:layout_margin="@dimen/xs_margin">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/md_padding"
+            android:padding="@dimen/sm_padding"
             android:layout_margin="@dimen/xs_margin">
 
             <TextView
@@ -30,7 +30,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{employeeBind.name}"
-                android:textSize="@dimen/title_text_size"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

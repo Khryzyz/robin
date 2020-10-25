@@ -1,4 +1,4 @@
-package com.camilorubio.robin.utils
+package com.camilorubio.robin.utility
 
 import com.camilorubio.robin.domain.entity.BossEmployeeResDTO
 import com.camilorubio.robin.domain.entity.CompanyResDTO

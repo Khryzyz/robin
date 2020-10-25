@@ -7,6 +7,8 @@ data class BossEmployeeBind (
     val name : String,
     val position : String,
     val wage : Long,
+    var isSelectable : Boolean = false,
+    var isSelected : Boolean = false,
     val employee : List<EmployeeBind>
 ) {
 
@@ -15,7 +17,7 @@ data class BossEmployeeBind (
             oldItem: BossEmployeeBind,
             newItem: BossEmployeeBind
         ): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.id == newItem.id && oldItem.isSelectable == newItem.isSelectable && oldItem.isSelected == newItem.isSelected
         }
 
         override fun areContentsTheSame(

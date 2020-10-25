@@ -3,9 +3,9 @@ package com.camilorubio.robin.data.repository
 import com.camilorubio.robin.data.ResponseState
 import com.camilorubio.robin.data.datasource.remote.HomeRemoteDataSource
 import com.camilorubio.robin.domain.entity.CompanyResDTO
-import com.camilorubio.robin.utils.Mapper.Companion.mapBossEmployeeDto
-import com.camilorubio.robin.utils.Mapper.Companion.mapCompanyDto
-import com.camilorubio.robin.utils.Mapper.Companion.mapEmployeeDto
+import com.camilorubio.robin.utility.Mapper.Companion.mapBossEmployeeDto
+import com.camilorubio.robin.utility.Mapper.Companion.mapCompanyDto
+import com.camilorubio.robin.utility.Mapper.Companion.mapEmployeeDto
 import com.camilorubio.robin.viewmodel.home.IContractHome
 import javax.inject.Inject
 
