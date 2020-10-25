@@ -1,6 +1,6 @@
-package com.camilorubio.robin.di.modules
+package com.camilorubio.robin.di.module
 
-import com.camilorubio.robin.domain.repositories.EmployeeRepository
+import com.camilorubio.robin.data.repository.EmployeeRepository
 import com.camilorubio.robin.viewmodel.employee.IContractEmployee
 import dagger.Binds
 import dagger.Module

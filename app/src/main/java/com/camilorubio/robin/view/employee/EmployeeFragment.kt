@@ -13,9 +13,12 @@ import androidx.lifecycle.Observer
 import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.EmployeeFragmentBinding
 import com.camilorubio.robin.utils.viewModel.ViewModelFactory
+import com.camilorubio.robin.view.employee.adapter.BossEmployeeAdapter
+import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.viewmodel.employee.EmployeeViewModel
 import com.camilorubio.robin.viewmodel.employee.UIState
 import dagger.android.support.AndroidSupportInjection
+import timber.log.Timber
 import javax.inject.Inject
 
 class EmployeeFragment : Fragment() {
@@ -24,6 +27,7 @@ class EmployeeFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
     private val viewModel: EmployeeViewModel by viewModels { viewModelFactory }
     private lateinit var binding : EmployeeFragmentBinding
+    private lateinit var adapter : BossEmployeeAdapter
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -40,6 +44,10 @@ class EmployeeFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+        binding.viewModel = viewModel
+
+        setupAdapter()
+
         return binding.root
     }
 
@@ -50,11 +58,18 @@ class EmployeeFragment : Fragment() {
 
         viewModel.employees.observe(viewLifecycleOwner, Observer { uiState ->
             when(uiState) {
-                is UIState.Success -> {}
+                is UIState.Success -> adapter.submitList(uiState.data as List<BossEmployeeBind>)
                 is UIState.Error -> Toast.makeText(requireContext(), uiState.message, Toast.LENGTH_SHORT).show()
             }
         })
 
+    }
+
+    private fun setupAdapter() {
+        adapter = BossEmployeeAdapter {
+            Timber.d("-- Tap $it")
+        }
+        binding.recyclerViewBossEmployee.adapter = adapter
     }
 
 

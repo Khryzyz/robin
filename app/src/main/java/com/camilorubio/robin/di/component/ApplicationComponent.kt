@@ -2,7 +2,7 @@ package com.camilorubio.robin.di.component
 
 import android.app.Application
 import com.camilorubio.robin.app.RobinApplication
-import com.camilorubio.robin.di.modules.*
+import com.camilorubio.robin.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

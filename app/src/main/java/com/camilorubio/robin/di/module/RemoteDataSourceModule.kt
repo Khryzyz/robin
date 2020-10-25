@@ -1,7 +1,7 @@
-package com.camilorubio.robin.di.modules
+package com.camilorubio.robin.di.module
 
-import com.camilorubio.robin.domain.datasource.remote.EmployeeRemoteDataSource
-import com.camilorubio.robin.domain.datasource.remote.EmployeeRemoteDataSourceImpl
+import com.camilorubio.robin.data.datasource.remote.EmployeeRemoteDataSource
+import com.camilorubio.robin.data.datasource.remote.EmployeeRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton

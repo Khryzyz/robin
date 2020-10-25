@@ -1,4 +1,4 @@
-package com.camilorubio.robin.di.modules
+package com.camilorubio.robin.di.module
 
 import dagger.Module
 

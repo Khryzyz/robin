@@ -1,6 +1,6 @@
-package com.camilorubio.robin.domain.datasource.remote
+package com.camilorubio.robin.data.datasource.remote
 
-import com.camilorubio.robin.domain.entities.CompanyResDTO
+import com.camilorubio.robin.domain.entity.CompanyResDTO
 import retrofit2.Response
 
 interface EmployeeRemoteDataSource {

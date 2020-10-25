@@ -1,6 +1,8 @@
 package com.camilorubio.robin.viewmodel.employee
 
-import com.camilorubio.robin.domain.entities.CompanyResDTO
+import com.camilorubio.robin.data.ResponseState
+import com.camilorubio.robin.domain.entity.CompanyResDTO
+import com.camilorubio.robin.view.model.CompanyBind
 import retrofit2.Response
 
 interface IContractEmployee {
@@ -10,11 +12,11 @@ interface IContractEmployee {
     }
 
     interface UseCases {
-        suspend fun getEmployees(uiState: (UIState) -> Unit)
+        suspend fun getEmployees(responseState: (ResponseState) -> Unit)
     }
 
     interface Repository {
-        suspend fun getEmployees() : Response<CompanyResDTO>
+        suspend fun getEmployees(responseState: (ResponseState) -> Unit)
     }
 
 }
