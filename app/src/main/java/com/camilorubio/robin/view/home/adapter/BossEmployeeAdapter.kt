@@ -1,6 +1,7 @@
-package com.camilorubio.robin.view.employee.adapter
+package com.camilorubio.robin.view.home.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -29,9 +30,9 @@ class BossEmployeeAdapter(private val clickListener: (Long) -> Unit) :
 
         fun bind(bossEmployee: BossEmployeeBind, clickListener: (Long) -> Unit) {
             binding.apply {
-                boss = bossEmployee
+                bossBind = bossEmployee
 
-                container.setOnClickListener {
+                cardView.setOnClickListener {
                     clickListener(bossEmployee.id)
                 }
 

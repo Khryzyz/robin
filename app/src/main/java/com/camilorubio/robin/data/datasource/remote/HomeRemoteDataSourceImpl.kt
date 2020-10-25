@@ -5,9 +5,9 @@ import com.camilorubio.robin.data.apiservice.RobinApi
 import retrofit2.Response
 import javax.inject.Inject
 
-class EmployeeRemoteDataSourceImpl @Inject constructor(
+class HomeRemoteDataSourceImpl @Inject constructor(
     private val robinApi: RobinApi
-) : EmployeeRemoteDataSource {
+) : HomeRemoteDataSource {
 
     override suspend fun getEmployees(): Response<CompanyResDTO> = robinApi.getEmployees()
 

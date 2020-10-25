@@ -1,4 +1,4 @@
-package com.camilorubio.robin.viewmodel.employee
+package com.camilorubio.robin.viewmodel
 
 sealed class UIState {
     class Success(val data: Any) : UIState()

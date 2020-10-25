@@ -1,7 +1,7 @@
 package com.camilorubio.robin.di.module
 
-import com.camilorubio.robin.data.datasource.remote.EmployeeRemoteDataSource
-import com.camilorubio.robin.data.datasource.remote.EmployeeRemoteDataSourceImpl
+import com.camilorubio.robin.data.datasource.remote.HomeRemoteDataSource
+import com.camilorubio.robin.data.datasource.remote.HomeRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -11,8 +11,8 @@ abstract class RemoteDataSourceModule {
 
     @Binds
     @Singleton
-    abstract fun provideEmployeeRemoteDataSource(
-        employeeRemoteDataSourceImpl: EmployeeRemoteDataSourceImpl
-    ): EmployeeRemoteDataSource
+    abstract fun provideHomeRemoteDataSource(
+        homeRemoteDataSourceImpl: HomeRemoteDataSourceImpl
+    ): HomeRemoteDataSource
 
 }

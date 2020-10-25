@@ -8,7 +8,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.ActivityMainBinding
-import dagger.android.AndroidInjection
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment)
 
         NavigationUI.setupActionBarWithNavController(this, navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, null)
     }
 
 }

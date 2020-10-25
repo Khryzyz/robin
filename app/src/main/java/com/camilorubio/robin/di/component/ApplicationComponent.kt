@@ -14,7 +14,7 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class, ApplicationModule::class, ActivityBindingModule::class,
         FragmentBindingModule::class, ViewModelModule::class, UseCasesModule::class, RepositoryModule::class,
-        RemoteDataSourceModule::class
+        RemoteDataSourceModule::class, LocalDataSourceModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<RobinApplication> {

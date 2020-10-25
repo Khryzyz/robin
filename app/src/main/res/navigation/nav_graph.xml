@@ -3,11 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/employeeFragment">
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.camilorubio.robin.view.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/employeeFragment"
         android:name="com.camilorubio.robin.view.employee.EmployeeFragment"
-        android:label="employee_fragment"
-        tools:layout="@layout/employee_fragment" />
+        android:label="EmployeeFragment" >
+        <argument
+            android:name="idBossEmployee"
+            app:argType="long" />
+    </fragment>
 </navigation>

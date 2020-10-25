@@ -6,58 +6,62 @@
     <data>
 
         <variable
-            name="boss"
+            name="bossBind"
             type="com.camilorubio.robin.view.model.BossEmployeeBind" />
 
     </data>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/container"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:focusable="true"
         android:elevation="3dp"
         android:layout_margin="@dimen/sm_margin">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/md_padding"
-            android:layout_margin="@dimen/xs_margin">
+            android:padding="@dimen/sm_padding"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView_userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{boss.name}"
+                android:text="@{bossBind.name}"
                 android:textSize="@dimen/title_text_size"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Camilo Rubio" />
 
-
             <TextView
                 android:id="@+id/textView_userPosition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="@{boss.position}"
+                android:text="@{bossBind.position}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_userName"
                 tools:text="CEO" />
 
             <TextView
                 android:id="@+id/textView_userWage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@{String.valueOf(boss.wage)}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:text="@{String.valueOf(bossBind.wage)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_userPosition"
                 tools:text="6'000.000" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 

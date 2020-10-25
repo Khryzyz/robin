@@ -2,25 +2,22 @@ package com.camilorubio.robin.view.model
 
 import androidx.recyclerview.widget.DiffUtil
 
-data class BossEmployeeBind (
+data class EmployeeBind (
     val id : Long,
-    val name : String,
-    val position : String,
-    val wage : Long,
-    val employee : List<EmployeeBind>
+    val name : String
 ) {
 
-    object DiffCallback : DiffUtil.ItemCallback<BossEmployeeBind>() {
+    object DiffCallback : DiffUtil.ItemCallback<EmployeeBind>() {
         override fun areItemsTheSame(
-            oldItem: BossEmployeeBind,
-            newItem: BossEmployeeBind
+            oldItem: EmployeeBind,
+            newItem: EmployeeBind
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: BossEmployeeBind,
-            newItem: BossEmployeeBind
+            oldItem: EmployeeBind,
+            newItem: EmployeeBind
         ): Boolean {
             return oldItem == newItem
         }
@@ -30,7 +27,7 @@ data class BossEmployeeBind (
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as BossEmployeeBind
+        other as EmployeeBind
 
         if (id != other.id) return false
 

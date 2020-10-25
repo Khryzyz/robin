@@ -9,5 +9,5 @@ data class BossEmployeeResDTO (
     @Json(name = "name") val name : String,
     @Json(name = "position") val position : String,
     @Json(name = "wage") val wage : Long,
-    @Json(name = "employees") val employees : List<EmployeeResDTO?>?
+    @Json(name = "employees") val employees : List<EmployeeResDTO>
 )
