@@ -1,4 +1,4 @@
-package com.camilorubio.robin.view
+package com.camilorubio.robin.view.mainactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

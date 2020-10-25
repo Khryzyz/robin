@@ -6,20 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.EmployeeFragmentBinding
 import com.camilorubio.robin.utils.viewModel.ViewModelFactory
 import com.camilorubio.robin.viewmodel.employee.EmployeeViewModel
+import com.camilorubio.robin.viewmodel.employee.UIState
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 class EmployeeFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = EmployeeFragment()
-    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -46,6 +45,16 @@ class EmployeeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getEmployees()
+
+        viewModel.employees.observe(viewLifecycleOwner, Observer { uiState ->
+            when(uiState) {
+                is UIState.Success -> {}
+                is UIState.Error -> Toast.makeText(requireContext(), uiState.message, Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 
 

@@ -7,13 +7,12 @@ import dagger.android.DaggerApplication
 
 class RobinApplication : DaggerApplication(){
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerApplicationComponent.builder().create(this).build()
-    }
-
     override fun onCreate() {
         super.onCreate()
         Stetho.initializeWithDefaults(this)
     }
 
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerApplicationComponent.builder().create(this).build()
+    }
 }

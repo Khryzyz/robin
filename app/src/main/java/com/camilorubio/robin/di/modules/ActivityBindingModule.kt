@@ -1,6 +1,6 @@
 package com.camilorubio.robin.di.modules
 
-import com.camilorubio.robin.view.MainActivity
+import com.camilorubio.robin.view.mainactivity.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
