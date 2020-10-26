@@ -115,9 +115,11 @@ class HomeFragment : Fragment() {
     private fun setupAdapter() {
         adapter = BossEmployeeAdapter(clickListener = { idBossEmployee ->
             actionMode.getMode()?.finish()
-            findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToEmployeeFragment(idBossEmployee)
-            )
+            findNavController().currentDestination?.getAction(R.id.action_homeFragment_to_employeeFragment)?.let {
+                findNavController().navigate(
+                        HomeFragmentDirections.actionHomeFragmentToEmployeeFragment(idBossEmployee)
+                )
+            }
         }, checked = { idBossEmployee, status ->
             viewModel.setStatusCheckByEmployee(idBossEmployee, status)
         })
