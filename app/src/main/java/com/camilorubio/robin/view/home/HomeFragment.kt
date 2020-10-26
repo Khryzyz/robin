@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -18,8 +19,8 @@ import com.camilorubio.robin.utility.Utils.Companion.visible
 import com.camilorubio.robin.utility.viewModel.ViewModelFactory
 import com.camilorubio.robin.view.home.adapter.BossEmployeeAdapter
 import com.camilorubio.robin.view.model.BossEmployeeBind
-import com.camilorubio.robin.viewmodel.home.HomeViewModel
 import com.camilorubio.robin.viewmodel.UIState
+import com.camilorubio.robin.viewmodel.home.HomeViewModel
 import com.camilorubio.robin.viewmodel.share.ShareViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -64,6 +65,18 @@ class HomeFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_search, menu)
+        val searchItem = menu.findItem(R.id.searchViewItem)
+        val searchView = searchItem.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                viewModel.filterListEmployees(newText)
+                return true
+            }
+        })
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -74,21 +87,25 @@ class HomeFragment : Fragment() {
         viewModel.getEmployees()
 
         viewModel.bossEmployees.observe(viewLifecycleOwner, { uiState ->
-            when(uiState) {
+            when (uiState) {
                 is UIState.Success -> {
                     adapter.submitList(uiState.data as List<BossEmployeeBind>)
                     viewModel.getCompany()?.let { companyBind ->
                         shareViewModel.setCompanyBind(companyBind)
                     }
                 }
-                is UIState.Error -> Toast.makeText(requireContext(), getString(uiState.message as Int), Toast.LENGTH_SHORT).show()
+                is UIState.Error -> Toast.makeText(
+                    requireContext(),
+                    getString(uiState.message as Int),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
 
     }
 
     private fun setupAdapter() {
-        adapter = BossEmployeeAdapter (clickListener =  { idBossEmployee ->
+        adapter = BossEmployeeAdapter(clickListener = { idBossEmployee ->
             actionMode.getMode()?.let { actionMode ->
                 actionMode.finish()
             }
@@ -116,7 +133,7 @@ class HomeFragment : Fragment() {
                     actionMode.finish()
                 }
             }
-        }, clickBack =  {
+        }, clickBack = {
             binding.apply {
                 textViewCompanyName.visible()
                 textViewCompanyAddress.visible()

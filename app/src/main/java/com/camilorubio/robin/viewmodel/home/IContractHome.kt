@@ -14,6 +14,7 @@ interface IContractHome {
         fun setStatusCheckByEmployee(idEmployee : Long, status : Boolean)
         fun cleanSelection()
         fun saveEmployeesAsNew()
+        fun filterListEmployees(newText : String)
     }
 
     interface UseCases {
@@ -22,6 +23,7 @@ interface IContractHome {
         fun cleanSelection(listBossEmployeeBind: List<BossEmployeeBind>) : List<BossEmployeeBind>
         fun setStatusCheckByEmployee(idEmployee: Long, status : Boolean, listBossEmployeeBind: List<BossEmployeeBind>) : List<BossEmployeeBind>
         suspend fun saveEmployeesAsNew(listBossEmployeeBind: List<BossEmployeeBind>)
+        fun filterListEmployees(newText : String, listBossEmployeeBind: List<BossEmployeeBind>) : List<BossEmployeeBind>?
     }
 
     interface Repository {

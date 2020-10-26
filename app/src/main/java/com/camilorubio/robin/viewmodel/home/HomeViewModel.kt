@@ -11,6 +11,7 @@ import com.camilorubio.robin.view.model.CompanyBind
 import com.camilorubio.robin.viewmodel.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(private val useCases : IContractHome.UseCases)
@@ -95,6 +96,16 @@ class HomeViewModel @Inject constructor(private val useCases : IContractHome.Use
         viewModelScope.launch(Dispatchers.IO) {
             getCompany()?.let { companyBind ->
                 useCases.saveEmployeesAsNew(companyBind.employees)
+            }
+        }
+    }
+
+    override fun filterListEmployees(newtext: String) {
+        getCompany()?.let { companyBind ->
+            useCases.filterListEmployees(newtext, companyBind.employees)?.let { listBossEmployeeBind ->
+                _bossEmployees.value = UIState.Success(
+                    listBossEmployeeBind
+                )
             }
         }
     }

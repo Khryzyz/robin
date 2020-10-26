@@ -4,6 +4,7 @@ import com.camilorubio.robin.data.ResponseState
 import com.camilorubio.robin.domain.entity.EmployeeNewDB
 import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.viewmodel.home.IContractHome
+import java.util.*
 import javax.inject.Inject
 
 class HomeUseCases @Inject constructor(private val repository: IContractHome.Repository) : IContractHome.UseCases {
@@ -82,6 +83,16 @@ class HomeUseCases @Inject constructor(private val repository: IContractHome.Rep
                     )
                 )
             }
+        }
+    }
+
+    override fun filterListEmployees(newText: String, listBossEmployeeBind: List<BossEmployeeBind>): List<BossEmployeeBind>? {
+        return listBossEmployeeBind.filter { bossEmployeeBind ->
+            bossEmployeeBind.name.trim().toLowerCase(Locale.ROOT).contains(
+                newText.trim().toLowerCase(
+                    Locale.ROOT
+                )
+            )
         }
     }
 
