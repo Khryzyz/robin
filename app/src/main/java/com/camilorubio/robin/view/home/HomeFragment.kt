@@ -65,8 +65,8 @@ class HomeFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_search, menu)
-        val searchItem = menu.findItem(R.id.searchViewItem)
-        val searchView = searchItem.actionView as SearchView
+        val item = menu.findItem(R.id.searchViewItem)
+        val searchView = item.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return true
@@ -80,6 +80,14 @@ class HomeFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.filterItem -> {
+                viewModel.sortList()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -106,9 +114,7 @@ class HomeFragment : Fragment() {
 
     private fun setupAdapter() {
         adapter = BossEmployeeAdapter(clickListener = { idBossEmployee ->
-            actionMode.getMode()?.let { actionMode ->
-                actionMode.finish()
-            }
+            actionMode.getMode()?.finish()
             findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToEmployeeFragment(idBossEmployee)
             )

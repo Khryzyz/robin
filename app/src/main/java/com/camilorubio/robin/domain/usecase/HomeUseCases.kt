@@ -96,4 +96,16 @@ class HomeUseCases @Inject constructor(private val repository: IContractHome.Rep
         }
     }
 
+    override fun sortList(listBossEmployeeBind: List<BossEmployeeBind>): List<BossEmployeeBind>? {
+        return if (listBossEmployeeBind[0].wage < listBossEmployeeBind.last().wage) {
+            listBossEmployeeBind.sortedByDescending { bossEmployeeBind ->
+                bossEmployeeBind.wage
+            }
+        } else {
+            listBossEmployeeBind.sortedBy { bossEmployeeBind ->
+                bossEmployeeBind.wage
+            }
+        }
+    }
+
 }

@@ -6,12 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.camilorubio.robin.R
 import com.camilorubio.robin.data.ResponseState
-import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.view.model.CompanyBind
 import com.camilorubio.robin.viewmodel.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(private val useCases : IContractHome.UseCases)
@@ -106,6 +104,17 @@ class HomeViewModel @Inject constructor(private val useCases : IContractHome.Use
                 _bossEmployees.value = UIState.Success(
                     listBossEmployeeBind
                 )
+            }
+        }
+    }
+
+    override fun sortList() {
+        getCompany()?.let { companyBind ->
+            useCases.sortList(companyBind.employees)?.let { listBossEmployeeBind ->
+                _bossEmployees.value = UIState.Success(
+                    listBossEmployeeBind
+                )
+                _company.value?.employees = listBossEmployeeBind
             }
         }
     }
