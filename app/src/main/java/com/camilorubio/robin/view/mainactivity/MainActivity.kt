@@ -8,7 +8,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.ActivityMainBinding
-import com.camilorubio.robin.utility.Utils.Companion.gone
 import com.camilorubio.robin.utility.Utils.Companion.visible
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment)
 
         NavigationUI.setupActionBarWithNavController(this, navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id) {
+                R.id.homeFragment -> binding.appBarLayout.visible()
+                else -> binding.appBarLayout.visible()
+            }
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

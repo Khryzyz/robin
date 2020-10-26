@@ -4,13 +4,12 @@ import com.camilorubio.robin.data.db.dao.EmployeeDao
 import com.camilorubio.robin.domain.entity.EmployeeNewDB
 import javax.inject.Inject
 
-class EmployeeLocalDataSourceImpl @Inject constructor(
+class EmployeeNewLocalDataSourceImpl @Inject constructor(
     private val employeeDao: EmployeeDao
-) : EmployeeLocalDataSource {
+) : EmployeeNewLocalDataSource {
 
-    override suspend fun getEmployeeNewById(idEmployee: Long) : EmployeeNewDB? {
-        return employeeDao.getEmployeeNewById(idEmployee)
+    override suspend fun getEmployeesNew(): List<EmployeeNewDB>? {
+        return employeeDao.getEmployeesNew()
     }
-
 
 }

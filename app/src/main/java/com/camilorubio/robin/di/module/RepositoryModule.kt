@@ -1,8 +1,10 @@
 package com.camilorubio.robin.di.module
 
+import com.camilorubio.robin.data.repository.EmployeeNewRepository
 import com.camilorubio.robin.data.repository.EmployeeRepository
 import com.camilorubio.robin.data.repository.HomeRepository
 import com.camilorubio.robin.viewmodel.employee.IContractEmployee
+import com.camilorubio.robin.viewmodel.employeenew.IContractEmployeeNew
 import com.camilorubio.robin.viewmodel.home.IContractHome
 import dagger.Binds
 import dagger.Module
@@ -22,5 +24,11 @@ abstract class RepositoryModule {
     abstract fun provideEmployeeRepository(
         employeeRepository: EmployeeRepository
     ): IContractEmployee.Repository
+
+    @Binds
+    @Singleton
+    abstract fun provideEmployeeNewRepository(
+        employeeNewRepository: EmployeeNewRepository
+    ): IContractEmployeeNew.Repository
 
 }

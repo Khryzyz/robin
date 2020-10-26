@@ -1,4 +1,4 @@
-package com.camilorubio.robin.domain.entity
+package com.camilorubio.robin.domain.dto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

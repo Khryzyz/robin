@@ -55,6 +55,7 @@ class EmployeeFragment : Fragment() {
         shareViewModel.getBossEmployeeById(args.idBossEmployee) { bossEmployeeBind ->
             bossEmployeeBind?.let { bossEmployeeBind ->
                 viewModel.setInformationBossEmployee(bossEmployeeBind)
+                viewModel.getEmployeeNewById(args.idBossEmployee)
             }
         }
 

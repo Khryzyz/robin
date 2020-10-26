@@ -1,6 +1,7 @@
 package com.camilorubio.robin.di.module
 
 import com.camilorubio.robin.view.employee.EmployeeFragment
+import com.camilorubio.robin.view.employeeNew.EmployeeNewFragment
 import com.camilorubio.robin.view.home.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,5 +14,8 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector
     abstract fun bindEmployeeFragment(): EmployeeFragment
+
+    @ContributesAndroidInjector
+    abstract fun bindEmployeeNewFragment(): EmployeeNewFragment
 
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.camilorubio.robin.utility.viewModel.ViewModelFactory
 import com.camilorubio.robin.utility.viewModel.ViewModelKey
 import com.camilorubio.robin.viewmodel.employee.EmployeeViewModel
+import com.camilorubio.robin.viewmodel.employeenew.EmployeeNewViewModel
 import com.camilorubio.robin.viewmodel.home.HomeViewModel
 import com.camilorubio.robin.viewmodel.share.ShareViewModel
 import dagger.Binds
@@ -31,5 +32,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(EmployeeViewModel::class)
     internal abstract fun bindEmployeeViewModel(viewModel: EmployeeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(EmployeeNewViewModel::class)
+    internal abstract fun bindEmployeeNewViewModel(viewModel: EmployeeNewViewModel): ViewModel
 
 }

@@ -1,11 +1,13 @@
 package com.camilorubio.robin.utility
 
-import com.camilorubio.robin.domain.entity.BossEmployeeResDTO
-import com.camilorubio.robin.domain.entity.CompanyResDTO
-import com.camilorubio.robin.domain.entity.EmployeeResDTO
+import com.camilorubio.robin.domain.dto.BossEmployeeResDTO
+import com.camilorubio.robin.domain.dto.CompanyResDTO
+import com.camilorubio.robin.domain.dto.EmployeeResDTO
+import com.camilorubio.robin.domain.entity.EmployeeNewDB
 import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.view.model.CompanyBind
 import com.camilorubio.robin.view.model.EmployeeBind
+import com.camilorubio.robin.view.model.EmployeeNewBind
 
 class Mapper {
 
@@ -46,6 +48,19 @@ class Mapper {
                 )
             }
             return listEmployeeBind
+        }
+
+        fun mapEmployeeDB(listEmployeeNewDB : List<EmployeeNewDB>): List<EmployeeNewBind> {
+            val listEmployeeNewBind = arrayListOf<EmployeeNewBind>()
+            listEmployeeNewDB.forEach { employeeResDTO ->
+                listEmployeeNewBind.add(
+                    EmployeeNewBind(
+                        id = employeeResDTO.id,
+                        name = employeeResDTO.name
+                    )
+                )
+            }
+            return listEmployeeNewBind
         }
 
     }

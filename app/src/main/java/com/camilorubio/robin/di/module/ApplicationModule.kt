@@ -1,5 +1,7 @@
 package com.camilorubio.robin.di.module
 
+import android.app.Application
+import android.content.Context
 import com.camilorubio.robin.data.apiservice.RobinApi
 import com.camilorubio.robin.utility.Constants.RobinApi.BASE_URL
 import com.facebook.stetho.okhttp3.StethoInterceptor
@@ -16,6 +18,12 @@ import javax.inject.Singleton
 
 @Module
 class ApplicationModule {
+
+    @Provides
+    @Singleton
+    fun provideContext(application: Application): Context {
+        return application
+    }
 
     @Singleton
     @Provides

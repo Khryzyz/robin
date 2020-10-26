@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.camilorubio.robin.databinding.EmployeeItemBinding
 import com.camilorubio.robin.view.model.EmployeeBind
 
-class EmployeeAdapter() :
+class EmployeeAdapter :
     ListAdapter<EmployeeBind, EmployeeAdapter.EmployeeViewHolder>(EmployeeBind.DiffCallback){
 
     override fun onCreateViewHolder(

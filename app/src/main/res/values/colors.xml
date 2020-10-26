@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_fragment">#FFFFFF</color>
+    <color name="text_color_message_dialog">#000000</color>
 
 </resources>

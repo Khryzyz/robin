@@ -1,10 +1,9 @@
 package com.camilorubio.robin.viewmodel.home
 
 import com.camilorubio.robin.data.ResponseState
-import com.camilorubio.robin.domain.entity.CompanyResDTO
+import com.camilorubio.robin.domain.entity.EmployeeNewDB
 import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.view.model.CompanyBind
-import retrofit2.Response
 
 interface IContractHome {
 
@@ -14,6 +13,7 @@ interface IContractHome {
         fun setItemsSelectable(status : Boolean)
         fun setStatusCheckByEmployee(idEmployee : Long, status : Boolean)
         fun cleanSelection()
+        fun saveEmployeesAsNew()
     }
 
     interface UseCases {
@@ -21,10 +21,12 @@ interface IContractHome {
         fun setItemsSelectable(status : Boolean, listBossEmployeeBind: List<BossEmployeeBind>) : List<BossEmployeeBind>
         fun cleanSelection(listBossEmployeeBind: List<BossEmployeeBind>) : List<BossEmployeeBind>
         fun setStatusCheckByEmployee(idEmployee: Long, status : Boolean, listBossEmployeeBind: List<BossEmployeeBind>) : List<BossEmployeeBind>
+        suspend fun saveEmployeesAsNew(listBossEmployeeBind: List<BossEmployeeBind>)
     }
 
     interface Repository {
         suspend fun getEmployees(responseState: (ResponseState) -> Unit)
+        suspend fun saveEmployeesAsNew(employeeNewDB: EmployeeNewDB)
     }
 
 }

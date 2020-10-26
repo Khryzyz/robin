@@ -13,6 +13,7 @@ import com.camilorubio.robin.R
 import com.camilorubio.robin.databinding.HomeFragmentBinding
 import com.camilorubio.robin.utility.ActionModeMenu
 import com.camilorubio.robin.utility.Utils.Companion.gone
+import com.camilorubio.robin.utility.Utils.Companion.showConfirmationDialog
 import com.camilorubio.robin.utility.Utils.Companion.visible
 import com.camilorubio.robin.utility.viewModel.ViewModelFactory
 import com.camilorubio.robin.view.home.adapter.BossEmployeeAdapter
@@ -80,7 +81,7 @@ class HomeFragment : Fragment() {
                         shareViewModel.setCompanyBind(companyBind)
                     }
                 }
-                is UIState.Error -> Toast.makeText(requireContext(), uiState.message, Toast.LENGTH_SHORT).show()
+                is UIState.Error -> Toast.makeText(requireContext(), getString(uiState.message as Int), Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -103,12 +104,24 @@ class HomeFragment : Fragment() {
 
     private fun setupActionModeMenu() {
         actionMode = ActionModeMenu(clickSelect = {
-
+            showConfirmationDialog(
+                R.string.message_confirmation_dialog,
+                true,
+                requireContext(),
+                R.string.text_yes,
+                R.string.text_no
+            ) {
+                viewModel.saveEmployeesAsNew()
+                actionMode.getMode()?.let { actionMode ->
+                    actionMode.finish()
+                }
+            }
         }, clickBack =  {
             binding.apply {
                 textViewCompanyName.visible()
                 textViewCompanyAddress.visible()
                 buttonAddNews.visible()
+                buttonSeeNews.visible()
             }
             viewModel.setItemsSelectable(false)
             viewModel.cleanSelection()
@@ -121,11 +134,18 @@ class HomeFragment : Fragment() {
                 textViewCompanyName.gone()
                 textViewCompanyAddress.gone()
                 buttonAddNews.gone()
+                buttonSeeNews.gone()
             }
             if (actionMode.getMode() == null) {
                 viewModel.setItemsSelectable(true)
                 actionMode.startActionMode(view, R.menu.menu_selection_employee)
             }
+        }
+
+        binding.buttonSeeNews.setOnClickListener {
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToEmployeeNewFragment()
+            )
         }
     }
 

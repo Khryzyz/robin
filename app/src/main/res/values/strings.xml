@@ -5,5 +5,11 @@
     <string name="menu_search">Búsqueda</string>
     <string name="action_mode_menu">Menú de acción</string>
     <string name="text_employees">Empleados a cargo</string>
+    <string name="message_confirmation_dialog">¿Estás seguro de agregar los empleados como nuevos?</string>
+    <string name="text_yes">Sí</string>
+    <string name="text_no">No</string>
+    <string name="text_add_news">Agregar nuevos</string>
+    <string name="text_see_news">Ver nuevos</string>
+    <string name="text_error">Algo ha salido mal</string>
 
 </resources>

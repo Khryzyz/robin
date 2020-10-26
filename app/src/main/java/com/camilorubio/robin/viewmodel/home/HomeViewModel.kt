@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.camilorubio.robin.R
 import com.camilorubio.robin.data.ResponseState
 import com.camilorubio.robin.view.model.BossEmployeeBind
 import com.camilorubio.robin.view.model.CompanyBind
@@ -48,7 +49,7 @@ class HomeViewModel @Inject constructor(private val useCases : IContractHome.Use
                     }
                 }
             } catch (ex : Exception) {
-                _bossEmployees.postValue(UIState.Error("Algo ha salido mal"))
+                _bossEmployees.postValue(UIState.Error(R.string.text_error))
             }
         }
     }
@@ -86,6 +87,14 @@ class HomeViewModel @Inject constructor(private val useCases : IContractHome.Use
                     listBossEmployeeBind
                 )
                 _company.value?.employees = listBossEmployeeBind
+            }
+        }
+    }
+
+    override fun saveEmployeesAsNew() {
+        viewModelScope.launch(Dispatchers.IO) {
+            getCompany()?.let { companyBind ->
+                useCases.saveEmployeesAsNew(companyBind.employees)
             }
         }
     }

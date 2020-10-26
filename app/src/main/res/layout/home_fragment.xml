@@ -51,40 +51,48 @@
             <Button
                 android:id="@+id/button_addNews"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add news"
-                android:textAllCaps="false"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/sm_margin"
+                android:layout_marginEnd="@dimen/md_margin"
+                android:paddingStart="@dimen/md_padding"
+                android:paddingEnd="@dimen/md_padding"
                 android:background="@drawable/bg_rounded_button"
+                android:text="@string/text_add_news"
+                android:textAllCaps="false"
                 android:textColor="@color/purple_700"
                 android:textColorHint="@color/purple_700"
-                android:layout_marginEnd="@dimen/md_margin"
-                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+            <Button
+                android:id="@+id/button_seeNews"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="@dimen/md_margin"
+                android:layout_marginTop="@dimen/sm_margin"
+                android:paddingStart="@dimen/md_padding"
+                android:paddingEnd="@dimen/md_padding"
+                android:background="@drawable/bg_rounded_button"
+                android:text="@string/text_see_news"
+                android:textAllCaps="false"
+                android:textColor="@color/purple_700"
+                android:textColorHint="@color/purple_700"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_addNews" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_bossEmployee"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/md_margin"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/sm_margin"
                 android:background="@drawable/bg_container_home"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="@dimen/md_padding"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_companyAddress">
+                app:layout_constraintTop_toBottomOf="@+id/button_seeNews"
+                tools:listitem="@layout/boss_employee_item" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView_bossEmployee"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/md_padding"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:listitem="@layout/boss_employee_item" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

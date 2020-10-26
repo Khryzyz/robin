@@ -17,6 +17,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment_to_employeeNewFragment"
+            app:destination="@id/employeeNewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
@@ -26,4 +33,8 @@
             android:name="idBossEmployee"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/employeeNewFragment"
+        android:name="com.camilorubio.robin.view.employeeNew.EmployeeNewFragment"
+        android:label="@string/employees_news" />
 </navigation>
