@@ -50,7 +50,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0-beta01'
-    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -69,7 +69,7 @@ dependencies {
     //Dagger
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version_support"
 
     //Timber Logging
     implementation "com.jakewharton.timber:timber:$timber_version"
@@ -86,13 +86,13 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
-    //Lottie
-    implementation "com.airbnb.android:lottie:$lottieVersion"
-
     //LifeCycle
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    //Shimmer for charge recyclers
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     //Room
     implementation "androidx.room:room-runtime:$room_version"

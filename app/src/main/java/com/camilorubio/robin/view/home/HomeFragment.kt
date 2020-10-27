@@ -97,16 +97,20 @@ class HomeFragment : Fragment() {
         viewModel.bossEmployees.observe(viewLifecycleOwner, { uiState ->
             when (uiState) {
                 is UIState.Success -> {
+                    binding.shimmerFrameLayoutHome.gone()
                     adapter.submitList(uiState.data as List<BossEmployeeBind>)
                     viewModel.getCompany()?.let { companyBind ->
                         shareViewModel.setCompanyBind(companyBind)
                     }
                 }
-                is UIState.Error -> Toast.makeText(
-                    requireContext(),
-                    getString(uiState.message as Int),
-                    Toast.LENGTH_SHORT
-                ).show()
+                is UIState.Error ->  {
+                    binding.shimmerFrameLayoutHome.visible()
+                    Toast.makeText(
+                        requireContext(),
+                        getString(uiState.message as Int),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         })
 
